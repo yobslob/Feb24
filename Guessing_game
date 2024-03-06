@@ -1,0 +1,26 @@
+import random
+print("Welcome to the guessing game.")
+print("You have 5 guesses.")
+user_num = input("Guess a number between 1 to 20: ")
+ran_num = random.randint(1,21)
+score = 0
+while score<5  :
+    score += 1
+    if user_num.isnumeric():
+        user_num = int(user_num)
+    else:
+        user_num = input("Enter a number this time: ")
+        continue
+    if user_num == ran_num:
+        print("You got it correct!")
+        print(f"You got it in {score} guesses.")
+        break
+    
+    elif user_num < ran_num:
+        user_num = input("Guess higher.")
+    elif user_num > ran_num:
+        user_num = input("Guess lower.")
+
+if score == 5:
+            print("No chances left :(")
+            print("The number was",ran_num)
